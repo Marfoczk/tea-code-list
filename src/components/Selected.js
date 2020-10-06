@@ -30,6 +30,10 @@ const StyledTitle = styled.div`
     padding: 1rem;
     pointer-events: initial;
 
+    &:hover {
+        background-color: hsl(339, 100%, 56%);
+    }
+
     svg {
         margin-left: auto;
     }

@@ -9,7 +9,17 @@ const StyledWrapper = styled.div`
     padding-left: 1.2rem;
     background-color: #f50057;
     color: white;
-    `;
+
+    &:hover {
+        background-color: hsl(339, 100%, 56%);
+    }
+
+    &:hover .highlight {
+        background-color: hsl(339, 100%, 56%);
+    }
+
+`;
+
 const StyledInput = styled.input`
     border: none;
     outline: none;
@@ -19,9 +29,13 @@ const StyledInput = styled.input`
     color: white;
     font-size: 1rem;
     
-        ::placeholder {
-            color: rgba(255,255,255,.6);
-        }
+    &:hover {
+        background-color: hsl(339, 100%, 56%);
+    }
+
+    ::placeholder {
+        color: rgba(255,255,255,.6);
+    }
 `;
 
 const Input = ( { setSearchQuery }) => {
@@ -39,7 +53,7 @@ const Input = ( { setSearchQuery }) => {
     return (
         <StyledWrapper>
             <SearchIcon style={{ color: `white` }} />
-            <StyledInput type="text" placeholder="...search" value={inputValue} onChange={(e) => handleValueChange(e)}/>
+            <StyledInput className="highlight" type="text" placeholder="...search" value={inputValue} onChange={(e) => handleValueChange(e)}/>
         </StyledWrapper>
         )
 }
