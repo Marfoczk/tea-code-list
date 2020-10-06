@@ -10,6 +10,7 @@ const StyledDiv = styled.div`
     right: 0;
     width: 25%;
     cursor: pointer;
+    pointer-events: none;
 `;
 
 const StyledItem = styled.p`
@@ -27,6 +28,7 @@ const StyledTitle = styled.div`
     background-color: #f50057;
     color: white;
     padding: 1rem;
+    pointer-events: initial;
 
     svg {
         margin-left: auto;
@@ -39,7 +41,7 @@ const Selected = ({ data, checked }) => {
     const [open, setOpen] = useState(false)
     
     return (
-        <StyledDiv onClick={() => setOpen(!open)}>
+        <StyledDiv>
             {data
             .filter(item => checked.includes(item.id))
             .map((item) => 
@@ -50,7 +52,7 @@ const Selected = ({ data, checked }) => {
                     ID: {item.id} {item.first_name} {item.last_name} 
                 </StyledItem>
             )}
-            <StyledTitle>
+            <StyledTitle onClick={() => setOpen(!open)}>
                 <span>Selected {checked.length}</span>             
                 {open ? <ArrowDropDown /> : <ArrowDropUp />} 
             </StyledTitle>
