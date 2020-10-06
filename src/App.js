@@ -33,9 +33,7 @@ function App() {
   }, [checked])
 
   return (
-
-    <StyledContainer>
-
+    <>
       <Input setSearchQuery={setSearchQuery} />
       <List dense>
         {data
@@ -54,8 +52,7 @@ function App() {
         ))}
       </List>
       {checked.length > 0 ? <Selected data={data} checked={checked}/> : null}
-
-    </StyledContainer>
+    </>
   );
 }
 
